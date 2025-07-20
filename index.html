@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cody & Lauren's Vegas Wedding</title>
+    <style>
+        body {
+            background-image: url("Vegas.jpg");
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: linear-gradient(135deg, #8a2be2, #ff1493, #00ced1);
+            border: 4px solid #ff69b4;
+            padding: 20px;
+            box-shadow: 5px 5px 0px #000;
+        }
+        img {
+            border: 0px solid #FFF;
+            margin: 10px;
+        }
+        h1 {
+            font-size: 72px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffff00, #ff1493, #00ffff, #ff8c00, #ff1493);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                2px 2px 4px #000,
+                0 0 8px #ffff00,
+                0 0 12px #ffff00,
+                0 0 16px #ff1493;
+            margin: 30px 0;
+            text-align: center;
+            letter-spacing: 3px;
+            animation: neonGlow 2s ease-in-out infinite alternate, gradientShift 3s ease infinite;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @keyframes neonGlow {
+            from {
+                text-shadow: 
+                    2px 2px 4px #000,
+                    0 0 8px #ffff00,
+                    0 0 12px #ffff00,
+                    0 0 16px #ff1493;
+            }
+            to {
+                text-shadow: 
+                    2px 2px 4px #000,
+                    0 0 4px #ffff00,
+                    0 0 8px #ffff00,
+                    0 0 12px #ff1493;
+            }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .title-container {
+            position: relative;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 4px solid #ffff00;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 20px #ffff00,
+                0 0 40px #ff1493,
+                0 0 60px #00ffff;
+            backdrop-filter: blur(10px);
+        }
+        
+        .title-decoration {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffff00, #ff1493, #00ffff, #ff8c00, transparent);
+            border-radius: 2px;
+            animation: decorationGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes decorationGlow {
+            from { box-shadow: 0 0 10px #ffff00, 0 0 20px #ff1493; }
+            to { box-shadow: 0 0 20px #ffff00, 0 0 40px #ff1493; }
+        }
+        h2 {
+            font-size: 24px;
+            color: #00ffff;
+            text-shadow: 2px 2px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+        }
+
+        .header-img {
+            margin: 10px 0;
+            border: none;
+            background: transparent;
+        }
+        .tabs {
+            background: linear-gradient(90deg, #ffd700, #ff8c00);
+            padding: 10px;
+            border-bottom: 3px solid #000;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .tabs a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            border: 3px solid #000;
+            display: inline-block;
+            font-weight: bold;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 3px 3px 0px #000;
+        }
+        .tabs a:hover {
+            background: linear-gradient(45deg, #00ffff, #00ced1);
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0px #000;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .bio, .location, .registry, .photos {
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px dashed #ffff00;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        .rsvp-form {
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px solid #ff1493;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        .rsvp-form input, .rsvp-form select, .rsvp-form button {
+            font-size: 16px;
+            margin: 5px;
+            padding: 8px;
+            border: 2px solid #000;
+            background: #ffffff;
+            color: #000;
+        }
+        .rsvp-form button {
+            background: linear-gradient(45deg, #ffd700, #ff8c00);
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 2px 2px 0px #000;
+        }
+        .rsvp-form button:hover {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 0px #000;
+        }
+        
+        .rsvp-table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .rsvp-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            border: 3px solid #ffff00;
+        }
+        
+        .rsvp-table th {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: #000;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 1px 1px #fff;
+            border: 2px solid #000;
+        }
+        
+        .rsvp-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ffff00;
+            color: #ffffff;
+        }
+        
+        .rsvp-table tr:nth-child(even) {
+            background: rgba(255, 20, 147, 0.2);
+        }
+        
+        .rsvp-table tr:nth-child(odd) {
+            background: rgba(0, 206, 209, 0.2);
+        }
+        
+        .rsvp-table tr:hover {
+            background: rgba(255, 255, 0, 0.3);
+        }
+        
+        .checkbox-cell {
+            text-align: center;
+        }
+        
+        .checkbox-cell input[type="checkbox"] {
+            transform: scale(1.5);
+            accent-color: #ff1493;
+        }
+        
+        .google-form-btn {
+            background: linear-gradient(45deg, #00ffff, #00ced1);
+            color: #000;
+            padding: 15px 25px;
+            border: 3px solid #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 3px 3px 0px #000;
+        }
+        
+        .google-form-btn:hover {
+            background: linear-gradient(45deg, #ffff00, #ff8c00);
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0px #000;
+        }
+        
+        .form-note {
+            color: #ffff00;
+            font-style: italic;
+            text-shadow: 1px 1px #000;
+            margin-top: 10px;
+        }
+        
+        .mini-btn {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: #000;
+            padding: 5px 10px;
+            border: 2px solid #000;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 2px 2px 0px #000;
+        }
+        
+        .mini-btn:hover {
+            background: linear-gradient(45deg, #00ffff, #00ced1);
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 0px #000;
+        }
+        
+        .add-guest-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px dashed #00ffff;
+            border-radius: 10px;
+        }
+        
+        .guest-input {
+            padding: 10px;
+            margin-right: 10px;
+            border: 2px solid #000;
+            background: #ffffff;
+            color: #000;
+            font-size: 16px;
+            width: 200px;
+        }
+        
+        .add-guest-btn {
+            background: linear-gradient(45deg, #00ffff, #00ced1);
+            color: #000;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 2px 2px 0px #000;
+        }
+        
+        .add-guest-btn:hover {
+            background: linear-gradient(45deg, #ffff00, #ff8c00);
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 0px #000;
+        }
+        
+        .export-btn {
+            background: linear-gradient(45deg, #ff8c00, #ff4500);
+            color: #000;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+            text-shadow: 1px 1px #fff;
+            box-shadow: 2px 2px 0px #000;
+        }
+        
+        .export-btn:hover {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            transform: translateY(-1px);
+            box-shadow: 3px 3px 0px #000;
+        }
+        img {
+            border: 0px solid #FFF;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./VegasSign.png" alt="Vintage Vegas Neon Sign" class="header-img" width="700">
+        <div class="title-container">
+            <h1>Cody & Lauren's Vegas Wedding</h1>
+            <div class="title-decoration"></div>
+        </div>
+        <div class="tabs">
+            <a href="#" onclick="showTab('home')">Home</a>
+            <a href="#" onclick="showTab('rsvp')">RSVP</a>
+            <a href="#" onclick="showTab('registry')">Registry & Photos</a>
+        </div>
+
+        <div id="home" class="tab-content active">
+            <div class="bio">
+                <h2>About Us</h2>
+                <p>Something here</p>
+                <img src="https://via.placeholder.com/300x150?text=Desert+Vegas+Skyline" alt="Desert Vegas Skyline" width="300">
+            </div>
+            <div class="location">
+                <h2>Location</h2>
+                <p>The wedding will take place at:<br>
+                <strong>Little White Wedding Chapel?</strong><br>
+                address<br>
+                time and day?</p>
+            </div>
+        </div>
+
+        <div id="rsvp" class="tab-content">
+            <div class="rsvp-form">
+                <h2>RSVP</h2>
+                <p>Please let us know if you can join us for each event!</p>
+                
+                <div class="add-guest-section">
+                    <input type="text" id="newGuestName" placeholder="Enter your name" class="guest-input">
+                    <button onclick="addNewGuest()" class="add-guest-btn">Add My Name</button>
+                </div>
+                
+                <div class="rsvp-table-container">
+                    <table class="rsvp-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Ceremony</th>
+                                <th>Dinner</th>
+                                <th>Brunch</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rsvpTableBody">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="rsvp-actions">
+                    <button onclick="openGoogleForm()" class="google-form-btn">
+                        📝 Also Fill Out Official Google Form
+                    </button>
+                    <p class="form-note">Please also submit your RSVP through the official Google Form for our records.</p>
+                    <button onclick="exportResponses()" class="export-btn">
+                        📊 Export Responses
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="registry" class="tab-content">
+            <div class="registry">
+                <h2>Registry</h2>
+                <p>We’re so grateful for your love and support! If you’d like to contribute to our future adventures, check out our registry:</p>
+                <a href="https://www.example.com/registry" target="_blank" style="color: #ffff00; text-shadow: 2px 2px #000; font-weight: bold;">Our Wedding Registry</a>
+            </div>
+            <div class="photos">
+                <h2>Photos</h2>
+                <p>Some moments from our journey together!</p>
+                <!-- Placeholder images; replace with your own URLs or purchased images -->
+                <img src="https://via.placeholder.com/150" alt="Cody and Lauren Photo 1" width="150">
+                <img src="https://via.placeholder.com/150" alt="Cody and Lauren Photo 2" width="150">
+                <img src="https://via.placeholder.com/150x150?text=Casino+Chips" alt="Retro Casino Chips" width="150">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Google Form URL
+        const googleFormUrl = 'https://forms.gle/uCbL865psiUZWCCEA';
+        
+        // Load saved responses from localStorage
+        let savedResponses = JSON.parse(localStorage.getItem('weddingRSVP') || '{}');
+        let guestList = JSON.parse(localStorage.getItem('guestList') || '["Allen", "Christal", "Kali", "Kalli", "Jen", "Lindsey", "Jane"]');
+        
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            // Populate RSVP table when RSVP tab is shown
+            if (tabId === 'rsvp') {
+                populateRSVPTable();
+            }
+        }
+        
+        function populateRSVPTable() {
+            const tableBody = document.getElementById('rsvpTableBody');
+            tableBody.innerHTML = '';
+            
+            guestList.forEach(guest => {
+                const row = document.createElement('tr');
+                const ceremonyChecked = savedResponses[guest]?.ceremony ? 'checked' : '';
+                const dinnerChecked = savedResponses[guest]?.dinner ? 'checked' : '';
+                const brunchChecked = savedResponses[guest]?.brunch ? 'checked' : '';
+                
+                row.innerHTML = `
+                    <td><strong>${guest}</strong></td>
+                    <td class="checkbox-cell">
+                        <input type="checkbox" id="ceremony_${guest}" ${ceremonyChecked} onchange="handleCheckboxChange('${guest}', 'ceremony')">
+                    </td>
+                    <td class="checkbox-cell">
+                        <input type="checkbox" id="dinner_${guest}" ${dinnerChecked} onchange="handleCheckboxChange('${guest}', 'dinner')">
+                    </td>
+                    <td class="checkbox-cell">
+                        <input type="checkbox" id="brunch_${guest}" ${brunchChecked} onchange="handleCheckboxChange('${guest}', 'brunch')">
+                    </td>
+
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        function handleCheckboxChange(guest, event) {
+            const checkbox = document.getElementById(`${event}_${guest}`);
+            
+            // Initialize guest responses if they don't exist
+            if (!savedResponses[guest]) {
+                savedResponses[guest] = {};
+            }
+            
+            // Save the response
+            savedResponses[guest][event] = checkbox.checked;
+            localStorage.setItem('weddingRSVP', JSON.stringify(savedResponses));
+            
+            // Show confirmation
+            const status = checkbox.checked ? 'attending' : 'not attending';
+            console.log(`${guest} is ${status} the ${event}`);
+        }
+        
+        function addNewGuest() {
+            const nameInput = document.getElementById('newGuestName');
+            const newName = nameInput.value.trim();
+            
+            if (newName === '') {
+                alert('Please enter a name!');
+                return;
+            }
+            
+            if (guestList.includes(newName)) {
+                alert('This name is already in the list!');
+                return;
+            }
+            
+            // Add to guest list
+            guestList.push(newName);
+            localStorage.setItem('guestList', JSON.stringify(guestList));
+            
+            // Clear input
+            nameInput.value = '';
+            
+            // Refresh table
+            populateRSVPTable();
+            
+            alert(`${newName} has been added to the guest list!`);
+        }
+        
+        function removeGuest(guest) {
+            if (confirm(`Are you sure you want to remove ${guest} from the guest list?`)) {
+                // Remove from guest list
+                guestList = guestList.filter(name => name !== guest);
+                localStorage.setItem('guestList', JSON.stringify(guestList));
+                
+                // Remove from saved responses
+                delete savedResponses[guest];
+                localStorage.setItem('weddingRSVP', JSON.stringify(savedResponses));
+                
+                // Refresh table
+                populateRSVPTable();
+                
+                alert(`${guest} has been removed from the guest list.`);
+            }
+        }
+        
+        function openGoogleForm() {
+            window.open(googleFormUrl, '_blank');
+        }
+        
+        function exportResponses() {
+            const exportData = {
+                guestList: guestList,
+                responses: savedResponses,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'wedding-rsvp-responses.json';
+            link.click();
+            
+            alert('RSVP responses have been exported!');
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home tab by default
+            showTab('home');
+        });
+    </script>
+</body>
+</html>
